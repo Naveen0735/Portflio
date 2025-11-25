@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+/* font-family: 'Space Grotesk', sans-serif; */
+
+::selection{
+    color: rgb(0, 0, 0);
+    background-color: rgb(208, 174, 5);
+}
+body{
+    margin: 0;
+    scroll-behavior: smooth;
+}
+p{
+    margin: 0;
+}
+.first-W{
+    height: 100vh;
+    padding-top: 9vh;
+    background-image: linear-gradient(to right,lightblue,rgb(184, 215, 225));
+}
+.first-line{
+    z-index: 1;
+}
+.header{
+    background-color: rgb(0, 0, 0);
+    opacity: 1;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px 0px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+.heading{
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    letter-spacing: 0.5px;
+}
+.sections{
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-right: 2rem ;
+    margin-right: 40px;
+}
+.home-hover{
+    font-size: 10px;
+}
+li:hover {
+    color: rgb(248, 236, 1);
+    cursor: pointer;
+}
+.main-left p, .text{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.main-left{
+    display: grid;
+    gap: 5px;
+    position: relative;
+}
+.main{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90vh;
+}
+.text{
+    position: relative;
+    width: 400px;
+    color: gray;
+}
+.text::after{
+    content: "|";
+    position: absolute;
+    right: 0;
+    width: 100%;
+    background-color:lightblue;
+    animation: text 2s steps(14) alternate infinite,
+               line 0.8s infinite;
+}
+@keyframes text{
+    to{
+        width: 0%;
+    }
+}
+@keyframes line{
+    50%{
+        color: transparent;
+    }
+}
+
+@media (min-width:1072px) {
+
+}
+
+
+.name{
+    color: gray;
+}
+.present{
+    font-size: 1.5rem !important;
+    margin-top: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+.my-image{
+    height: 100%;
+    width: 350px;
+    background-blend-mode: color-burn;
+}
+.my-image-div{border-radius: 50%;
+    display: flex;
+}
+.social-icons-div{
+    display: flex;
+    margin-top: 10px;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+.social-icon{
+    height: 25px;
+    object-fit: cover;
+    background-blend-mode: color-burn;
+    transition: 0.4s;
+}
+.social-icon:hover , .footer-logo:hover , .edu:hover,.arrow-div:hover ,.submit:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.main-hire, .main-resume{
+    border: none;
+    font-size: 1.6rem;
+    font-family: Josefin Sans;
+    border-radius: 5px;
+    background-color: rgb(98, 144, 231);
+    color: white;
+    padding: 10px 30px 10px;
+    transition: 0.2s;
+}
+.main-hire{
+   background-color: rgb(0, 0, 0);
+   color: white;
+}
+.down-icon{
+    height: 20px;
+    margin-left: 10px;
+}
+.buttons-div{
+    display: flex;
+    gap: 40px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.buttons-div button:hover{
+    box-shadow: 1px 1px 8px black;
+    cursor: pointer;
+}
+.buttons-div button:active{
+    box-shadow: none;
+}
+
+.works-W{
+    padding: 40px ;
+    height: max-content;
+    padding-bottom: 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+.works-heading{
+    font-size: 25px;
+    width: 90vw;
+    background-color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: bold;
+    border-bottom-color: rgb(229, 231, 235);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: rgb(0, 0, 0);
+}
+
+.work{
+    height: 200px;
+    width: 400px;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 6px 6px 16px black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.work:hover .work-bio, .work:hover .work-bio-e{
+    bottom: 0px;
+    background-color: rgba(113, 111, 111, 0.8);
+}
+.works-div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+    justify-content: center;
+}
+.work-bio , .work-bio-e{
+    background-color: rgb(0, 0, 0);
+    height: 70px;
+    display: flex;
+    width: 100%;
+    bottom: -50px;
+    transition: .5s;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 10px 15px;
+    position: absolute;
+}
+.work-bio-e{
+    height: 100px;
+    bottom: -75px;
+    padding-top: 15px ;
+    padding-right: 25px;
+}
+.work-pre{
+    height: 100%;
+    width: 100%;
+}
+.work-heading{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Space Grotesk', sans-serif;
+    text-align: center;
+}
+.work-info{
+    color: rgb(255, 255, 255);
+    width: 100%;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+.skills-w{
+    padding-left: 40px ;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    height: max-content;
+}
+.skills-heading{
+    font-size: 25px;
+    width: 90vw;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: bold;
+    border-bottom-color: rgb(229, 231, 235);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: rgb(0, 0, 0);
+    margin: 25px;
+}
+
+
+.skills-div{
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.skills-bar-div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+}
+.cards-skill{
+    margin: 10px;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 30px;
+    justify-content: start;
+    align-items: center;
+}
+.sbar-name{
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+}
+.progress-bar{
+    background-color: gray;
+    width: 60%;
+    height: 8px;
+    border-radius: 5px;
+}
+.html,.css,.js,.react{
+    height: 8px;
+    border-radius: 5px;
+    width: 98%;
+    background-color: rgb(248, 205, 10);
+}
+.css{
+    width: 90%;
+}
+.js{
+    width: 50%;
+}
+.react{
+    width: 10%;
+}
+
+.skill, .skill2{
+    width: max-content;
+    background-color: rgb(255, 255, 255);
+    padding: 17px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 16px black;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+.skill-img:hover{
+    transform: scale(1.2);
+}
+.skill2{
+    background-color: black;
+    color: white;
+}
+.skill-img {
+    height: 100%;
+    width: 100%;
+    transition: 0.5s ease;
+}
+.skill-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+
+
+.eduw{
+    height: max-content;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 40px;
+    padding-left: 70px;
+}
+
+.edu-heading{
+    font-size: 25px;
+    width: 90vw;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: bold;
+    border-bottom-color: rgb(229, 231, 235);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: rgb(0, 0, 0);
+}
+.edus-div{
+    display: flex;
+    padding: 40px;
+    gap: 90px;
+    justify-content: center;
+}
+.edu,.edu1{
+    height: max-content;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px orange;
+    border-radius: 10px;
+    padding: 20px 20px 20px;
+    box-shadow: 3px 3px 20px black;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.stage{
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color: rgb(23, 23, 12);
+}
+.Group , .Iname{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: gray;
+}
+.time{
+    font-size: 17px;
+    color: rgb(246, 185, 72);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+}
+.contact-w{
+    padding: 40px ;
+    height: max-content;
+    padding-bottom: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+.contact-heading{
+    font-size: 25px;
+    width: 90vw;
+    background-color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: bold;
+    border-bottom-color: rgb(229, 231, 235);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: rgb(0, 0, 0);
+}
+
+.contact-main-div{
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.contact-t{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.arrow-div{
+    border: none;
+    transition: 0.3s ease;
+    box-shadow: 1px 1px 5px black;
+    padding: 3px 10px 0px ;
+    border-radius: 5px;
+    background-color: rgb(241, 202, 85);
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.inputs input , .message{
+    border: none;
+    box-shadow: 1px 1px 8px black;
+    padding: 10px 20px 10px;
+    border-radius: 5px;
+    max-width: 320px;
+    min-width: 320px;
+    font-weight: bold;
+    color: gray;
+    font-family: 'Quicksand', sans-serif;
+}
+.submit{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    width: 100%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    color: white;
+    padding: 10px 20px 10px;
+    background-color: rgb(217, 183, 82);
+    border-radius: 6px;
+    transition: 0.3s ease ;
+}
+.send-img{
+    height: 16px;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.footer{
+    height: 28vh;
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(237, 220, 110);
+}
+
+.footer-head{
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+.footer-logos-div{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+.footer-logo1,.footer-logo2,.footer-logo3{
+    height: 30px;
+    transition: 0.3s ease;
+}
+
+
+.home-h{
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:visited{
+    text-decoration: none;
+}
