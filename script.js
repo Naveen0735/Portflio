@@ -1,229 +1,305 @@
-gsap.from(".first-line",{
-    y:70,
-    duration: 1.3,
-    // stagger:0.2,
- 
-})  
-gsap.from(".sections",{
-    y:-100,
-    duration:1,
-    delay:1
-})
-gsap.from(".heading",{
-    x:-100,
-    opacity:0,
-    duration:1,
-    delay:1
-})
+// Wait for DOM to load completely
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // Register GSAP ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
 
-gsap.from(".work",{
-    y:300,
-    duration:2,
-    stagger:0.5,
-    scrollTrigger: {
-        scrub:2,
-        trigger:".work",
-        scroller:"body",
-        start:"top 150%",
-        end:"top 70%"
-    }
-})
-gsap.from(".my-image",{
-    opacity:0,
-    x:100,
-    duration:1,
-    delay:0.5
-})
-gsap.from(".present",{
-    y:-50,
-    duration:1,
-    opacity:0
-})
-gsap.from(".buttons-div",{
-    y:-200,
-    duration:1,
-    opacity:-1,
-})
+    /* ==========================================================================
+       MOBILE NAVIGATION OVERLAY
+       ========================================================================== */
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenuClose = document.getElementById("mobile-menu-close");
+    const mobileNavMenu = document.getElementById("mobile-nav-menu");
+    const mobNavItems = document.querySelectorAll(".mob-nav-item");
 
-gsap.from("#skillcard1",{
-    y:-100,
-    duration:1,
-    delay:1,
-    scrollTrigger:{
-        scrub:1,
-        opacity:0,
-        trigger:"#skillcard1",
-        scroller:"body",
-        start:"top 100%",
-        end:"top 75%",
-    }
-})
-gsap.from("#skillcard2",{
-    y:-100,
-    delay:3,
-    duration:3,
-    scrollTrigger:{
-        scrub:1,
-        opacity:0,
-        trigger:"#skillcard2",
-        scroller:"body",
-        start:"top 100%",
-        end:"top 75%",
-    }
-})
-gsap.from("#skillcard3",{
-    y:-100,
-    delay:6,
-    duration:1,
-    scrollTrigger:{
-        scrub:1,
-        opacity:0,
-        trigger:"#skillcard3",
-        scroller:"body",
-        start:"top 100%",
-        end:"top 75%",
-    }
-})
-
-
-gsap.from(".html,.css,.js",{
-    duration:2,
-    width:0,
-    scrollTrigger:{
-        scrub:2,
-        opacity:0,
-        trigger:".skill-bar-div",
-        scroller:"body",
-        start:"top 100%",
-        end:"top 60%",
-    }
-})
-
-gsap.from(".edu",{
-    x:-100,
-    opacity:0,
-    delay:1,
-    duration:1,
-    scrollTrigger:{
-        scrub:2,
-        trigger:".edu",
-        scroller:"body",
-        start:"top 100%",
-        end:"top 70%",
-    }
-})
-gsap.from(".edu1",{
-    x:100,
-    opacity:0,
-    delay:1,
-    duration:1,
-    scrollTrigger:{
-        scrub:2,
-        trigger:".edu1",
-        scroller:"body",
-        start:"top 100%",
-        end:"top 70%",
-    }
-})
-gsap.from(".email,.message",{
-    x:100,
-    duration:0.4,
-    opacity:0,
-    scrollTrigger:{
-        trigger:".inputs",
-        scrub:2,
-        scroller:"body",
-        start:"top 110%",
-        end:"top 80%"
-    }
-})
-gsap.from(".i-name,.submit",{
-    x:-100,
-    duration:0.4,
-    opacity:0,
-    scrollTrigger:{
-        trigger:".inputs",
-        scrub:2,
-        scroller:"body",
-        start:"top 110%",
-        end:"top 80%"
-    }
-})
-gsap.from(".arrow-div",{
-    x:-100,
-    duration:0.3,
-    scrollTrigger:{
-        trigger:".inputs",
-        scrub:1,
-        scroller:"body",
-        start:"top 110%",
-        end:"top 80%"
+    function openMobileMenu() {
+        mobileNavMenu.classList.add("open");
+        document.body.style.overflow = "hidden"; // Prevent body scrolling
+        // GSAP animate links inside menu
+        gsap.fromTo(".mob-nav-item", 
+            { y: 30, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 0.4, stagger: 0.08, delay: 0.2 }
+        );
     }
 
-})
-gsap.from(".footer-head",{
-    font:10,
-    delay:2,
-    opacity:-2,
-    duration:1,
-    scrollTrigger:{
-        trigger:".footer-head",
-        scrub:1,
-        scroller:"body",
-        start:"top 100%",
-        end:"top 70%"
+    function closeMobileMenu() {
+        mobileNavMenu.classList.remove("open");
+        document.body.style.overflow = "auto";
     }
-})
-gsap.from(".footer-logo1",{
-    x:-100,
-    opacity:0,
-    scrollTrigger:{
-        trigger:".footer-head",
-        scrub:1,
-        scroller:"body",
-        start:"top 90%",
-        end:"top 80%"
-    }
-})
-gsap.from(".footer-logo2",{
-    // duration:1,
-    opacity:0,
-    scrollTrigger:{
-        trigger:".footer-head",
-        scrub:1,
-        scroller:"body",
-        start:"top 90%",
-        end:"top 80%",
-    }
-})
-gsap.from(".footer-logo3",{
-    x:100,
-    opacity:0,
-    scrollTrigger:{
-        trigger:".footer-head",
-        scrub:1,
-        scroller:"body",
-        start:"top 90%",
-        end:"top 80%"
-    }
-})
-function handleResize() {
-    if (window.innerWidth <= 1072 && !sessionStorage.getItem('smallScreenConfirmed')) {
-        if (confirm('Your screen size is small. This website is not optimized for small screens. Click "OK" to continue anyway.')) {
-            window.removeEventListener('resize', handleResize);
-            sessionStorage.setItem('smallScreenConfirmed', 'true');
+
+    mobileMenuBtn.addEventListener("click", openMobileMenu);
+    mobileMenuClose.addEventListener("click", closeMobileMenu);
+    
+    // Close menu when clicking navigation items
+    mobNavItems.forEach(item => {
+        item.addEventListener("click", closeMobileMenu);
+    });
+
+
+    /* ==========================================================================
+       HERO TYPEWRITER LOOP
+       ========================================================================== */
+    const typingTextElement = document.querySelector(".typing-text");
+    const words = [
+        "Multi-Cloud Infrastructure Engineer",
+        "Web & Software Developer",
+        "Systems Automation Specialist",
+        "Virtualization Specialist"
+    ];
+    
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typewriterDelay = 120;
+
+    function type() {
+        const currentWord = words[wordIndex];
+        
+        if (isDeleting) {
+            typingTextElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+            typewriterDelay = 60; // Faster deletion
+        } else {
+            typingTextElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+            typewriterDelay = 120; // Normal typing speed
         }
-    }
-}
 
-function checkWidth() {
-    if (window.innerWidth <= 1072 && !sessionStorage.getItem('smallScreenConfirmed')) {
-        if (confirm('Kuddos! You have a small screen mate!\nThe website is not yet optimized for small screens.\nHowever, if you still want to view, click "OK".')) {
-            window.removeEventListener('resize', handleResize);
-            sessionStorage.setItem('smallScreenConfirmed', 'true');
+        if (!isDeleting && charIndex === currentWord.length) {
+            typewriterDelay = 2000; // Pause at full word
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            typewriterDelay = 400; // Pause before typing next word
         }
-    }
-}
 
-window.addEventListener('resize', checkWidth);
-window.addEventListener('load', checkWidth);
+        setTimeout(type, typewriterDelay);
+    }
+
+    // Initialize typing loop
+    if (typingTextElement) {
+        setTimeout(type, 1000);
+    }
+
+
+    /* ==========================================================================
+       PROJECT FILTERS (GSAP SCALE TRANSITIONS)
+       ========================================================================== */
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            // Remove active class from buttons and set it on clicked one
+            filterButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filterValue = btn.getAttribute("data-filter");
+
+            // Animate card filter transitions using GSAP scale & opacity
+            projectCards.forEach(card => {
+                const categories = card.getAttribute("data-category").split(" ");
+                
+                if (filterValue === "all" || categories.includes(filterValue)) {
+                    // Show item
+                    gsap.to(card, {
+                        scale: 1,
+                        opacity: 1,
+                        duration: 0.35,
+                        ease: "power2.out",
+                        onStart: () => {
+                            card.style.display = "flex";
+                        }
+                    });
+                } else {
+                    // Hide item
+                    gsap.to(card, {
+                        scale: 0.8,
+                        opacity: 0,
+                        duration: 0.3,
+                        ease: "power2.in",
+                        onComplete: () => {
+                            card.style.display = "none";
+                        }
+                    });
+                }
+            });
+        });
+    });
+
+
+    /* ==========================================================================
+       ACTIVE HEADER NAV HIGHLIGHT (INTERSECTION OBSERVER)
+       ========================================================================== */
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll(".nav-item");
+
+    const observerOptions = {
+        root: null,
+        rootMargin: "-25% 0px -55% 0px", // Trigger when section occupies center part of screen
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const activeId = entry.target.getAttribute("id");
+                
+                navItems.forEach(item => {
+                    item.classList.remove("active");
+                    if (item.getAttribute("href") === `#${activeId}`) {
+                        item.classList.add("active");
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+
+    /* ==========================================================================
+       GSAP SCROLLTRIGGER ENTRANCE ANIMATIONS
+       ========================================================================== */
+    
+    // 1. Initial Page/Hero Load
+    const tlHero = gsap.timeline();
+    tlHero.from(".logo", { y: -20, opacity: 0, duration: 0.6, ease: "power2.out" })
+          .from(".nav-links li", { y: -20, opacity: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" }, "-=0.3")
+          .from(".hero-tagline", { x: -30, opacity: 0, duration: 0.5, ease: "power2.out" }, "-=0.2")
+          .from(".hero-title", { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.3")
+          .from(".typing-container", { opacity: 0, duration: 0.4 }, "-=0.3")
+          .from(".hero-desc", { y: 20, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.2")
+          .from(".hero-actions", { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" }, "-=0.3")
+          .from(".hero-content .social-links a", { y: 15, opacity: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" }, "-=0.2")
+          .from(".avatar-wrapper", { scale: 0.9, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.8")
+          .from(".scroll-indicator", { y: 10, opacity: 0, repeat: -1, yoyo: true, duration: 1.2 }, "-=0.2");
+
+    // 2. Timeline Section Animations
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    timelineItems.forEach(item => {
+        const direction = item.classList.contains("reveal-left") ? -80 : 80;
+        
+        gsap.from(item.querySelector(".timeline-content"), {
+            x: direction,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+        
+        gsap.from(item.querySelector(".timeline-dot"), {
+            scale: 0,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 80%"
+            }
+        });
+    });
+
+    // 3. Project Cards Animations (Staggered Stretches)
+    gsap.from(".project-card", {
+        y: 50,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".projects-grid",
+            start: "top 85%"
+        }
+    });
+
+    // 4. Skills Section Animating Tags
+    gsap.from(".skills-column", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".skills-wrapper",
+            start: "top 80%"
+        }
+    });
+
+    // 5. Education Card Slide-ins
+    gsap.from(".edu-card", {
+        y: 40,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".edu-grid",
+            start: "top 85%"
+        }
+    });
+
+    // 6. Contact Panel Reveals
+    gsap.from(".contact-info-panel", {
+        x: -40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".contact-wrapper",
+            start: "top 80%"
+        }
+    });
+
+    gsap.from(".contact-form-panel", {
+        x: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".contact-wrapper",
+            start: "top 80%"
+        }
+    });
+
+
+    /* ==========================================================================
+       CONTACT FORM HANLDER
+       ========================================================================== */
+    const contactForm = document.getElementById("contact-form");
+    const submitBtn = contactForm.querySelector(".btn-submit");
+
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // Show sending status
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `Sending... <i class="fa-solid fa-circle-notch fa-spin send-icon"></i>`;
+        
+        // Simulate email send process
+        setTimeout(() => {
+            submitBtn.innerHTML = `Sent Successfully! <i class="fa-solid fa-check send-icon"></i>`;
+            submitBtn.style.background = "linear-gradient(135deg, #10b981 0%, #059669 100%)"; // Emerald green
+            submitBtn.style.color = "#ffffff";
+            
+            // Clear inputs
+            contactForm.reset();
+            
+            // Revert back to standard button state after 3.5s
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.style.background = ""; // Reset inline color styles
+                submitBtn.style.color = "";
+            }, 3500);
+            
+        }, 1500);
+    });
+
+});
