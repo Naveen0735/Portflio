@@ -15,9 +15,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Device Frame Simulator Control Bar -->
+    <div class="simulator-bar">
+        <span class="sim-label"><i class="fa-solid fa-laptop-code"></i> Preview Device:</span>
+        <button class="sim-btn active" data-view="desktop" title="Desktop View"><i class="fa-solid fa-desktop"></i></button>
+        <button class="sim-btn" data-view="tablet" title="Tablet View"><i class="fa-solid fa-tablet-screen-button"></i></button>
+        <button class="sim-btn" data-view="mobile" title="Mobile View"><i class="fa-solid fa-mobile-screen-button"></i></button>
+    </div>
 
-    <!-- Header Navigation -->
-    <header class="header">
+    <div id="page-wrapper">
+
+        <!-- Header Navigation -->
+        <header class="header">
         <div class="header-container">
             <a href="#hero" class="logo">
                 Naveen<span class="dot">.</span>
@@ -58,7 +67,7 @@
                 <span class="hero-tagline">Welcome to my Space</span>
                 <h1 class="hero-title">Hello, I am <span class="highlight">Matta Naveen</span></h1>
                 <div class="typing-container">
-                    <span class="typing-text">Multi-Cloud Infrastructure Engineer</span><span class="cursor">|</span>
+                    <span class="typing-text">Multi-Cloud Infrastructure Analyst Trainee</span><span class="cursor">|</span>
                 </div>
                 <p class="hero-desc">
                     Dynamic Web & Software Developer with a focus on cloud infrastructure administration, virtualization, and modern front-end engineering. Eager to innovate, automate, and build robust systems.
@@ -601,7 +610,7 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <span class="logo">Naveen<span class="dot">.</span></span>
-                <p>Multi-Cloud Infrastructure Engineer & Web Developer</p>
+                <p>Multi-Cloud Infrastructure Analyst Trainee & Web Developer</p>
             </div>
             <div class="footer-socials">
                 <a href="https://github.com/Naveen0735" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -614,6 +623,8 @@
             </div>
         </div>
     </footer>
+
+    </div> <!-- Close page-wrapper -->
 
     <!-- GSAP for Smooth, Hardware-Accelerated Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
