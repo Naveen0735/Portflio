@@ -1279,6 +1279,14 @@ img {
    RESPONSIVE DESIGN BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -1312,14 +1320,6 @@ img {
     
     .section-container {
         padding: 4rem 1.5rem;
-    }
-    
-    .nav-links {
-        display: none;
-    }
-    
-    .menu-toggle {
-        display: block;
     }
     
     .hero-title {

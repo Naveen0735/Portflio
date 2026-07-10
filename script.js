@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const words = [
         "Multi-Cloud Infrastructure Engineer",
         "Web & Software Developer",
-        "Systems Automation Specialist",
-        "Virtualization Specialist"
+        "Systems Automation Engineer",
+        "Virtualization Engineer"
     ];
     
     let wordIndex = 0;
