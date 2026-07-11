@@ -302,33 +302,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1500);
     });
 
-    /* ==========================================================================
-       DEVICE SIMULATOR WIDGET CONTROLS
-       ========================================================================== */
-    const simButtons = document.querySelectorAll(".sim-btn");
-    
-    simButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            // Remove active class from all buttons
-            simButtons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            
-            const view = btn.getAttribute("data-view");
-            
-            // Reset simulation classes on body
-            document.body.classList.remove("sim-tablet", "sim-mobile");
-            
-            if (view === "tablet") {
-                document.body.classList.add("sim-tablet");
-            } else if (view === "mobile") {
-                document.body.classList.add("sim-mobile");
-            }
-            
-            // Trigger GSAP ScrollTrigger refresh since container boundary bounds shifted!
-            setTimeout(() => {
-                ScrollTrigger.refresh();
-            }, 550); // wait for CSS transition to finish
-        });
-    });
-
 });
