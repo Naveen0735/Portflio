@@ -184,85 +184,85 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.from(item.querySelector(".timeline-content"), {
             x: direction,
             opacity: 0,
-            duration: 0.8,
+            duration: 0.6,
             ease: "power2.out",
             scrollTrigger: {
                 trigger: item,
-                start: "top 80%",
+                start: "top 95%",
                 toggleActions: "play none none none"
             }
         });
         
         gsap.from(item.querySelector(".timeline-dot"), {
             scale: 0,
-            duration: 0.5,
+            duration: 0.4,
             ease: "back.out(1.7)",
             scrollTrigger: {
                 trigger: item,
-                start: "top 80%"
+                start: "top 95%"
             }
         });
     });
 
     // 3. Project Cards Animations (Staggered Stretches)
     gsap.from(".project-card", {
-        y: 50,
+        y: 30,
         opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
+        duration: 0.5,
+        stagger: 0.08,
         ease: "power2.out",
         scrollTrigger: {
             trigger: ".projects-grid",
-            start: "top 85%"
+            start: "top 95%"
         }
     });
 
     // 4. Skills Section Animating Tags
     gsap.from(".skills-column", {
-        y: 40,
+        y: 30,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
+        duration: 0.6,
+        stagger: 0.15,
         ease: "power2.out",
         scrollTrigger: {
             trigger: ".skills-wrapper",
-            start: "top 80%"
+            start: "top 95%"
         }
     });
 
     // 5. Education Card Slide-ins
     gsap.from(".edu-card", {
-        y: 40,
+        y: 30,
         opacity: 0,
-        duration: 0.7,
-        stagger: 0.15,
+        duration: 0.5,
+        stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
             trigger: ".edu-grid",
-            start: "top 85%"
+            start: "top 95%"
         }
     });
 
     // 6. Contact Panel Reveals
     gsap.from(".contact-info-panel", {
-        x: -40,
+        x: -30,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: "power2.out",
         scrollTrigger: {
             trigger: ".contact-wrapper",
-            start: "top 80%"
+            start: "top 95%"
         }
     });
 
     gsap.from(".contact-form-panel", {
-        x: 40,
+        x: 30,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: "power2.out",
         scrollTrigger: {
             trigger: ".contact-wrapper",
-            start: "top 80%"
+            start: "top 95%"
         }
     });
 
